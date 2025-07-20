@@ -48,10 +48,11 @@ function App() {
 
     const formData = new FormData();
     formData.append('file', file);
-    if (location) {
-      formData.append('latitude', String(location.latitude));
-      formData.append('longitude', String(location.longitude));
-    }
+    // Always send latitude and longitude as required by backend
+    const lat = location?.latitude ?? 0;
+    const lng = location?.longitude ?? 0;
+    formData.append('latitude', String(lat));
+    formData.append('longitude', String(lng));
     // Optionally, ask user for brand or use a default
     formData.append('brand', 'Unknown');
 
