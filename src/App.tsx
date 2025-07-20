@@ -48,6 +48,12 @@ function App() {
 
     const formData = new FormData();
     formData.append('file', file);
+    if (location) {
+      formData.append('latitude', String(location.latitude));
+      formData.append('longitude', String(location.longitude));
+    }
+    // Optionally, ask user for brand or use a default
+    formData.append('brand', 'Unknown');
 
     try {
       const response = await fetch('https://fastapi-tf-79035170475.africa-south1.run.app/predict', {
