@@ -5,6 +5,10 @@ interface DetectionResponse {
   is_counterfeit: boolean;
   confidence: number;
   message: string;
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
 }
 
 interface DetectionResultProps {
@@ -74,6 +78,23 @@ const DetectionResult: React.FC<DetectionResultProps> = ({ result }) => {
       {result.message && (
         <div className="result-message">
           <p>{result.message}</p>
+        </div>
+      )}
+
+      {result.location && (
+        <div className="result-location">
+          <strong>Scan Location:</strong>
+          <a
+            href={`https://www.google.com/maps?q=${result.location.latitude},${result.location.longitude}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginLeft: 8 }}
+          >
+            View on Map
+          </a>
+          <span style={{ marginLeft: 8, fontSize: '0.95em', color: '#555' }}>
+            ({result.location.latitude.toFixed(5)}, {result.location.longitude.toFixed(5)})
+          </span>
         </div>
       )}
 
