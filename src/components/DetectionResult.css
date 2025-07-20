@@ -1,0 +1,152 @@
+.detection-result {
+  margin: 30px 0;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border: 1px solid #e0e0e0;
+}
+
+.detection-result.counterfeit {
+  background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+  border-color: #f8bbd9;
+}
+
+.detection-result.genuine {
+  background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+  border-color: #c8e6c9;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.status-icon {
+  font-size: 2.5rem;
+}
+
+.status-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.counterfeit .status-text {
+  color: #d32f2f;
+}
+
+.genuine .status-text {
+  color: #388e3c;
+}
+
+.confidence-section {
+  margin: 25px 0;
+}
+
+.confidence-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confidence-fill {
+  height: 100%;
+  transition: width 0.8s ease-in-out;
+  border-radius: 6px;
+}
+
+.result-message {
+  margin: 25px 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.result-message p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.result-info {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.warning-info {
+  background-color: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.safe-info {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.result-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.warning-info h3 {
+  color: #d32f2f;
+}
+
+.safe-info h3 {
+  color: #388e3c;
+}
+
+.result-info p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .detection-result {
+    margin: 20px 0;
+    padding: 20px;
+  }
+  
+  .result-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .status-icon {
+    font-size: 2rem;
+  }
+  
+  .status-text {
+    font-size: 1.5rem;
+  }
+  
+  .confidence-label {
+    font-size: 1rem;
+  }
+  
+  .result-info {
+    padding: 15px;
+  }
+}
