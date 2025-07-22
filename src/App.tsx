@@ -24,6 +24,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [location, setLocation] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [brand, setBrand] = useState<string>("");
 
   React.useEffect(() => {
     if (navigator.geolocation) {
@@ -53,8 +54,8 @@ function App() {
     const lng = location?.longitude ?? 0;
     formData.append('latitude', String(lat));
     formData.append('longitude', String(lng));
-    // Optionally, ask user for brand or use a default
-    formData.append('brand', 'Unknown');
+    // Use the entered brand or 'Unknown' if empty
+    formData.append('brand', brand.trim() || 'Unknown');
 
     try {
       const response = await fetch('https://fastapi-tf-79035170475.africa-south1.run.app/predict', {
@@ -101,6 +102,17 @@ function App() {
           }))} />
         ) : (
           <>
+            <div style={{ marginBottom: 16 }}>
+              <label htmlFor="brand-input" style={{ fontWeight: 500, marginRight: 8 }}>Brand:</label>
+              <input
+                id="brand-input"
+                type="text"
+                value={brand}
+                onChange={e => setBrand(e.target.value)}
+                placeholder="Enter alcohol brand"
+                style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc', minWidth: 200 }}
+              />
+            </div>
             <ImageUploader 
               onImageUpload={handleImageUpload} 
               isLoading={isLoading} 
