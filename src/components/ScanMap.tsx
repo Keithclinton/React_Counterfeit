@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 // Helper: Export to CSV
 function exportToCSV(scans: Scan[]) {
   const header = 'id,brand,date,latitude,longitude,is_counterfeit\n';
@@ -35,9 +38,6 @@ const CenterMapOnUser: React.FC<{ userLocation: [number, number] | null }> = ({ 
   }, [userLocation]);
   return null;
 };
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import MarkerClusterGroup from 'react-leaflet-cluster';
 
 interface Scan {
   id: string;
