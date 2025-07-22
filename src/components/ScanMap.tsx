@@ -169,7 +169,7 @@ const ScanMap: React.FC<ScanMapProps> = ({ scans }) => {
           zoom={7}
           style={{ height: '100%', width: '100%' }}
           scrollWheelZoom={true}
-          whenCreated={mapInstance => (mapRef.current = mapInstance)}
+          whenReady={({ map }: { map: any }) => { mapRef.current = map; }}
         >
           <TileLayer
             // @ts-ignore
