@@ -3,6 +3,18 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
+
+// Fix leaflet's default icon path for React build systems
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 // Helper: Export to CSV
 function exportToCSV(scans: Scan[]) {
   const header = 'id,brand,date,latitude,longitude,is_counterfeit\n';
