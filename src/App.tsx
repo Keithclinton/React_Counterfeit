@@ -87,7 +87,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🍾 Counterfeit Alcohol Detection</h1>
+        <h1>Counterfeit Alcohol Detection</h1>
         <p>Upload an image of alcohol to check for counterfeits</p>
       </header>
       <main className="App-main">
