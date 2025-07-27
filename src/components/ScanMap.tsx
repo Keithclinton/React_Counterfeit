@@ -205,7 +205,6 @@ const ScanMap: React.FC<ScanMapProps> = ({ scans }) => {
             {userLocation && (
               <Marker
                 position={userLocation}
-                icon={new L.Icon.Default()}
               >
                 <Popup>
                   <b>Your Location</b>
